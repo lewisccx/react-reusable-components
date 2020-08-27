@@ -1,7 +1,7 @@
 const Styles = {
     root:{
         display: "flex",
-        maxWidth: 800,
+   
     }
   
 };

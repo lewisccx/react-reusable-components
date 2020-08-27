@@ -21,11 +21,11 @@ const LightBoxConfig2 = {
   itemCarouselConfig: {
     numberOfCards: 3,
     infiniteLoop: false,
-    gutter: 6,
+    gutter: 12,
     showSlither: false,
     firstAndLastGutter: true,
     activePosition: "center",
-    chevronWidth: 20,
+    chevronWidth: 60,
     outsideChevron: true,
     alwaysShowChevrons: false,
     slidesToScroll: 1,
