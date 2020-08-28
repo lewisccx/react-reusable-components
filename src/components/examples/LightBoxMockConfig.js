@@ -1,11 +1,16 @@
+import { TOUCH_ACTIVATION, MOUSE_ACTIVATION } from "react-image-magnifiers";
 const LightBoxConfig1 = {
+  magnifierConfig: {
+    mouseActivation: MOUSE_ACTIVATION.CLICK,
+    touchActivation: TOUCH_ACTIVATION.TAP,
+    dragToMove: true,
+  },
   carouselConfig: {
     enableThumbs: false,
     showArrows: false,
     showStatus: false,
     showIndicators: false,
     infiniteLoop: false,
-    showThumbs: false,
     autoPlay: false,
     stopOnHover: false,
     swipeable: false,
@@ -18,6 +23,11 @@ const LightBoxConfig1 = {
 };
 
 const LightBoxConfig2 = {
+  magnifierConfig: {
+    mouseActivation: MOUSE_ACTIVATION.CLICK,
+    touchActivation: TOUCH_ACTIVATION.TAP,
+    dragToMove: true,
+  },
   itemCarouselConfig: {
     numberOfCards: 3,
     infiniteLoop: false,

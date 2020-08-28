@@ -11,9 +11,15 @@ class LightBoxExample extends Component {
     const classes = Styles;
     return (
       <Box style={classes.root}>
+        <Box style={classes.container}>
+          <LightBox
+            src={ImgSet.imgSet2}
+            config={LightBoxConfig.LightBoxConfig2}
+          />
+        </Box>
         <LightBox
-          src={ImgSet.imgSet2}
-          config={LightBoxConfig.LightBoxConfig2}
+          src={ImgSet.imgSet1}
+          config={LightBoxConfig.LightBoxConfig1}
         />
       </Box>
     );
