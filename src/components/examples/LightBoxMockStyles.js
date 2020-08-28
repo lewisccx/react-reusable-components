@@ -1,12 +1,15 @@
 const Styles = {
   root: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
+    flexWrap:"wrap",
+    maxWidth:"100%"
   },
   container: {
-    width: "70%",
-    height: "100%",
+    //width: "100%",
+    //height: "100%",
   },
+ 
 };
 
 export default Styles;

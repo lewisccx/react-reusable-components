@@ -5,14 +5,17 @@ import { Box, IconButton, ButtonBase } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForward";
 import { Carousel } from "react-responsive-carousel";
-import { Magnifier,TOUCH_ACTIVATION, MOUSE_ACTIVATION } from "react-image-magnifiers";
+import {
+  Magnifier,
+  TOUCH_ACTIVATION,
+  MOUSE_ACTIVATION,
+} from "react-image-magnifiers";
 import ItemsCarousel from "react-items-carousel";
 //CSS
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Styles from "./Light-Box.styles";
 
 import PropTypes from "prop-types";
-
 
 const LightBox = (props) => {
   const classes = Styles;
@@ -39,15 +42,29 @@ const LightBox = (props) => {
             }
             {...lightBoxConfig.itemCarouselConfig}
           >
-            {imgs.map((img, index) => (
-              <ButtonBase
-                focusRipple
-                key={index}
-                onClick={() => setSlide(index)}
-              >
-                <img style={classes.item} alt={img.alt} src={img.imgUrl} />
-              </ButtonBase>
-            ))}
+            {imgs.map((img, index) => {
+              if (img.preview) {
+                return (
+                  <ButtonBase
+                    focusRipple
+                    key={index}
+                    onClick={() => setSlide(index)}
+                  >
+                    <img style={classes.item} alt={img.alt} src={img.preview} />
+                  </ButtonBase>
+                );
+              } else {
+                return (
+                  <ButtonBase
+                    focusRipple
+                    key={index}
+                    onClick={() => setSlide(index)}
+                  >
+                    <img style={classes.item} alt={img.alt} src={img.imgUrl} />
+                  </ButtonBase>
+                );
+              }
+            })}
           </ItemsCarousel>
         </Box>
       );
@@ -65,19 +82,32 @@ const LightBox = (props) => {
           onChange={setSlide}
           showThumbs={false}
         >
-          {imgs.map((img) => {
-            const { alt, imgUrl, imgLargeUrl } = img;
+          {imgs.map((img, index) => {
+            if (img.preview) {
+              return (
+                <Magnifier
+                  key={index}
+                  className="input-position"
+                  imageSrc={img.preview}
+                  // largeImageSrc={imgLargeUrl}
+                  {...lightBoxConfig.magnifierConfig}
+                />
+              );
+            } else {
+              const { alt, imgUrl, imgLargeUrl } = img;
+
+              return (
+                <Magnifier
+                  key={alt}
+                  className="input-position"
+                  imageSrc={imgUrl}
+                  largeImageSrc={imgLargeUrl}
+                  {...lightBoxConfig.magnifierConfig}
+                />
+              );
+            }
 
             // return <img key={imgLargeUrl} alt={alt} src={imgUrl} />;
-            return (
-              <Magnifier
-                key={alt}
-                className="input-position"
-                imageSrc={imgUrl}
-                largeImageSrc={imgLargeUrl}
-                {...lightBoxConfig.magnifierConfig}
-              />
-            );
           })}
         </Carousel>
         {renderItemCarousel(src, config, classes)}

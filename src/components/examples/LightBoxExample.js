@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Box } from "@material-ui/core";
+
 import LightBox from "./../reusables/Light-Box";
 import ImgSet from "./LightBoxMockData";
 import LightBoxConfig from "./LightBoxMockConfig";
-
 import Styles from "./LightBoxMockStyles";
+import ImageUploader from "./ImageUploader";
 
 class LightBoxExample extends Component {
   render() {
@@ -17,10 +18,9 @@ class LightBoxExample extends Component {
             config={LightBoxConfig.LightBoxConfig2}
           />
         </Box>
-        <LightBox
-          src={ImgSet.imgSet1}
-          config={LightBoxConfig.LightBoxConfig1}
-        />
+        <Box>
+          <ImageUploader />
+        </Box>
       </Box>
     );
   }
