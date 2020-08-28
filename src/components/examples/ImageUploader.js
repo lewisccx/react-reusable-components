@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useDropzone } from "react-dropzone";
 import Styles from "./ImageUploaderStyles";
-import { Button } from "@material-ui/core";
+import { Button, Box } from "@material-ui/core";
 import LightBox from "../reusables/Light-Box";
 import LightBoxConfig from "./LightBoxMockConfig";
 
@@ -39,13 +39,13 @@ const ImageUploader = (props) => {
     }),
     [isDragActive, isDragReject, classes, isDragAccept]
   );
-  const thumbs = files.map((file) => (
-    <div style={classes.thumb} key={file.name}>
-      <div style={classes.thumbInner}>
-        <img src={file.preview} style={classes.img} />
-      </div>
-    </div>
-  ));
+//   const thumbs = files.map((file) => (
+//     <div style={classes.thumb} key={file.name}>
+//       <div style={classes.thumbInner}>
+//         <img src={file.preview} style={classes.img} />
+//       </div>
+//     </div>
+//   ));
   const generateLightBox = (
     <LightBox src={files} config={LightBoxConfig.LightBoxConfig2} />
   );
@@ -59,19 +59,19 @@ const ImageUploader = (props) => {
   );
 
   return (
-    <section className="container">
-      <div {...getRootProps({ style })}>
+    <Box>
+      <Box {...getRootProps({ style })}>
         <input {...getInputProps()} />
         <p>Drag 'n' drop some files here, or click to select files</p>
         <Button type="button" onClick={open}>
           Open File Dialog
         </Button>
-      </div>
-      <aside style={classes.thumbsContainer}>{thumbs}</aside>
-      <aside >
+      </Box>
+      {/* <Box style={classes.thumbsContainer}>{thumbs}</Box> */}
+      <Box >
         {files.length > 0 ? generateLightBox : null}
-      </aside>
-    </section>
+      </Box>
+    </Box>
   );
 };
 

@@ -25,7 +25,7 @@ const LightBoxConfig2 = {
   magnifierConfig: {
     mouseActivation: MOUSE_ACTIVATION.CLICK,
     touchActivation: TOUCH_ACTIVATION.TAP,
-    dragToMove: true,
+    dragToMove: false,
   },
   itemCarouselConfig: {
     numberOfCards: 3,

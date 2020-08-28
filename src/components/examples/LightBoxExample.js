@@ -12,12 +12,6 @@ class LightBoxExample extends Component {
     const classes = Styles;
     return (
       <Box style={classes.root}>
-        <Box style={classes.container}>
-          <LightBox
-            src={ImgSet.imgSet2}
-            config={LightBoxConfig.LightBoxConfig2}
-          />
-        </Box>
         <Box>
           <ImageUploader />
         </Box>
