@@ -12,9 +12,9 @@ class LightBoxExample extends Component {
     const classes = Styles;
     return (
       <Box style={classes.root}>
-        <Box>
+      
           <ImageUploader />
-        </Box>
+        
       </Box>
     );
   }

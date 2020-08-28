@@ -2,7 +2,7 @@ const Styles = {
   baseStyle: {
     flex: 1,
     display: "flex",
-    flexDirection: "column",
+     flexDirection: "column",
     alignItems: "center",
     padding: "20px",
     borderWidth: 2,
@@ -13,7 +13,7 @@ const Styles = {
     color: "#bdbdbd",
     outline: "none",
     transition: "border .24s ease-in-out",
-    width:"100%"
+  
   },
 
   activeStyle: {
